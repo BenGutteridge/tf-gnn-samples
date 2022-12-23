@@ -94,6 +94,8 @@ def run(args):
                 pass
 
         model.initialize_model()
+        print('Model:')
+        model.summary()
         model.train(quiet=args.get('--quiet'), tf_summary_path=args.get('--tensorboard'))
 
         if args.get('--run-test'):
