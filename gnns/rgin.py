@@ -103,6 +103,8 @@ def sparse_rgin_layer(
     for _ in range(num_timesteps):
         messages_per_type = []  # list of tensors of messages of shape [E, D]
         # Collect incoming messages per edge type
+        print('adjacency_lists: ', len(adjacency_lists), adjacency_lists)
+        input('Press Enter to continue...')
         for edge_type_idx, adjacency_list_for_edge_type in enumerate(adjacency_lists):
             edge_sources = adjacency_list_for_edge_type[:, 0]
             edge_targets = adjacency_list_for_edge_type[:, 1]
