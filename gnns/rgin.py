@@ -95,6 +95,8 @@ def sparse_rgin_layer(
                     activation_fun=activation_fn,
                     name="Edge_%i_MLP" % edge_type_idx))
         edge_type_to_message_targets.append(adjacency_list_for_edge_type[:, 1])
+    print('edge_type_to_edge_mlp: ', len(edge_type_to_edge_mlp), edge_type_to_edge_mlp)
+    input('Press Enter to continue...')
 
     # Let M be the number of messages (sum of all E):
     message_targets = tf.concat(edge_type_to_message_targets, axis=0)  # Shape [M]
@@ -106,6 +108,7 @@ def sparse_rgin_layer(
         print('adjacency_lists: ', len(adjacency_lists), adjacency_lists)
         input('Press Enter to continue...')
         for edge_type_idx, adjacency_list_for_edge_type in enumerate(adjacency_lists):
+            print('adj list shape: ', adjacency_list_for_edge_type.shape)
             edge_sources = adjacency_list_for_edge_type[:, 0]
             edge_targets = adjacency_list_for_edge_type[:, 1]
             edge_source_states = \
