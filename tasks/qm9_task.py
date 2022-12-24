@@ -78,11 +78,11 @@ class QM9_Task(Sparse_Graph_Task):
         self._loaded_data[DataFold.TRAIN] = self.__load_data(path.join("train.jsonl.gz"))
         # print('data:\n', self._loaded_data[DataFold.TRAIN])
         d = self._loaded_data[DataFold.TRAIN]
-        for j in range(10):
-            print(j)
+        for j in range(100):
+            print('graph %d out of %d' % (j, len(d)))
             for i, a in enumerate(d[j][0]):
-                print(i)
-                print('adjacency_lists:\n', a.shape)
+                print('edge type ', i)
+                print(a.shape[0], ' edges')
         input('Press Enter to continue...')
         self._loaded_data[DataFold.VALIDATION] = self.__load_data(path.join("valid.jsonl.gz"))
 
