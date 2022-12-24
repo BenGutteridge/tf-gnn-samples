@@ -76,7 +76,13 @@ class QM9_Task(Sparse_Graph_Task):
     # -------------------- Data Loading --------------------
     def load_data(self, path: RichPath) -> None:
         self._loaded_data[DataFold.TRAIN] = self.__load_data(path.join("train.jsonl.gz"))
-        print('data:\n', self._loaded_data[DataFold.TRAIN])
+        # print('data:\n', self._loaded_data[DataFold.TRAIN])
+        d = self._loaded_data[DataFold.TRAIN]
+        for d in range(10):
+            print(d)
+            for i, a in enumerate(d['adjacency_lists']):
+                print(i)
+                print('adjacency_lists:\n', a.shape)
         input('Press Enter to continue...')
         self._loaded_data[DataFold.VALIDATION] = self.__load_data(path.join("valid.jsonl.gz"))
 
