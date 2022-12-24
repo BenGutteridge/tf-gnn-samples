@@ -80,7 +80,7 @@ class QM9_Task(Sparse_Graph_Task):
         d = self._loaded_data[DataFold.TRAIN]
         for j in range(10):
             print(j)
-            for i, a in enumerate(d[j]['adjacency_lists']):
+            for i, a in enumerate(d[j][0]):
                 print(i)
                 print('adjacency_lists:\n', a.shape)
         input('Press Enter to continue...')
